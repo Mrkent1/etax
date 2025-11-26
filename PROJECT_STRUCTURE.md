@@ -17,21 +17,29 @@ This document defines the **STRICT ORGANIZATION RULES** for eTax Mobile PWA proj
 ```
 **THIS IS THE ONLY ACTIVE PROJECT DIRECTORY** - All development work must be done here.
 
-### 2. **ARCHIVES RULE**
+### 3. **SYSTEM UTILITIES**
+```
+/workspace/system/
+```
+- **NON-PROJECT FILES** - Browser tools, API utilities
+- **DO NOT WORK** in these directories for project tasks
+- **ISOLATED** from eTax development
+
+### 4. **USER INPUTS**
+```
+/workspace/user_input_files/
+```
+- **ORIGINAL FILES** - Uploaded project files
+- **REFERENCE ONLY** - Do not modify
+- **BACKUP PURPOSES** - Original project state
+
+### 5. **ARCHIVES RULE**
 ```
 /workspace/archives/
 ```
 - **ONLY** historical/backup files go here
 - **NEVER** modify files in archives
 - **NEVER** work from archives directory
-
-### 3. **TEMP RULE**
-```
-/workspace/temp/
-```
-- **ONLY** temporary/extraction files
-- **CLEAN UP** after use
-- **NEVER** commit temp files to source
 
 ---
 
@@ -197,6 +205,17 @@ configs/
 | Reports | `/docs/reports/` | `docs/reports/summary.md` |
 | Images/Assets | `/source/assets/` | `source/assets/logo.webp` |
 | PWA Files | `/source/` | `source/manifest.json` |
+| **NON-PROJECT** | `/system/` | `system/browser_extension/` |
+| **USER INPUTS** | `/user_input_files/` | `user_input_files/tax1.zip` |
+| **BACKUP** | `/archives/` | `archives/error_viewport/` |
+
+### **STRICTLY FORBIDDEN LOCATIONS:**
+
+| Directory | Purpose | Working Allowed |
+|-----------|---------|----------------|
+| `/workspace/system/` | System tools | ❌ NO - Non-project |
+| `/workspace/user_input_files/` | Original files | ❌ NO - Reference only |
+| `/workspace/archives/` | Backups | ❌ NO - Historical only |
 
 ---
 
@@ -281,4 +300,43 @@ If you follow these rules:
 
 **REMEMBER:** Good organization = Good development practices = Happy stakeholders
 
-**Last Updated:** 2025-11-26 19:45:42
+**Last Updated:** 2025-11-26 19:54:15
+
+## 📞 CONTACT & SUPPORT
+
+**Project Owner:** anh Nghĩa (non-technical)  
+**AI Agent:** MiniMax Agent  
+**Project Type:** eTax Mobile PWA  
+**Status:** Production Ready (96.7/100 PWA Score)
+
+## 📝 DOCUMENTATION INDEX
+
+| Document | Purpose | Audience |
+|----------|---------|----------|
+| **README.md** | Project overview & quick start | All stakeholders |
+| **PROJECT_STRUCTURE.md** | Development guidelines & rules | AI Agents |
+| **PRODUCTION_READY.md** | Current status & deployment info | Technical team |
+| **WORKSPACE_CLEANUP_SUMMARY.md** | Organization history | Documentation |
+
+## 🖥️ SYSTEM ORGANIZATION
+
+### **Workspace Categories:**
+```
+/workspace/
+├── 🎯 etax-mobile-pwa/     # ACTIVE PROJECT
+├── 📦 archives/           # BACKUP & HISTORY  
+├── 🖥️ system/             # NON-PROJECT TOOLS
+├── 📥 user_input_files/   # ORIGINAL INPUTS
+└── 📄 Documentation files # PROJECT GUIDES
+```
+
+### **Development Focus:**
+- **PRIMARY:** `/workspace/etax-mobile-pwa/` - All project work here
+- **SECONDARY:** `/workspace/archives/` - Reference historical versions
+- **IGNORE:** `/workspace/system/`, `/workspace/user_input_files/` - Non-project
+
+---
+
+**REMEMBER:** Good organization = Good development practices = Happy stakeholders
+
+**Last Updated:** 2025-11-26 19:54:15
