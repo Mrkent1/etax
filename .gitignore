@@ -4,44 +4,50 @@
 __pycache__/
 *.o
 *.obj
-*.exe
-*.dll
-*.so
-*.class
-*.out
+dist/
+build/
+target/
 
 # Dependencies
-node_modules/
-venv/
 .venv/
-.env
-.env.local
-.env.*
+venv/
+node_modules/
+.julia/
+.zig/
 
 # Logs and temp files
 *.log
 *.tmp
 *.swp
+*.swo
+
+# Environment
+.env
+.env.local
+*.env.*
 
 # Editors
 .vscode/
 .idea/
-
-# Coverage reports
-coverage/
-htmlcov/
-.coverage
-
-# Distribution artifacts
-dist/
-build/
-target/
-.pytest_cache/
-.mypy_cache/
+*.swp
+*.swo
 
 # System files
 .DS_Store
 Thumbs.db
+
+# Coverage
+coverage/
+htmlcov/
+.coverage
+
+# Python specific
+.mypy_cache/
+.pytest_cache/
+
+# Java/Gradle
+.gradle/
+*.class
 
 # Compressed files
 *.zip
