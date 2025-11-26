@@ -1,26 +1,57 @@
 {
-  "name": "eTax Mobile",
+  "name": "eTax Mobile - Vietnamese Tax System",
   "short_name": "eTax",
-  "description": "eTax Mobile Application for Vietnamese Tax Management",
-  "start_url": "login.html",
+  "description": "Progressive Web App for Vietnamese Tax Management and Filing - 22 comprehensive tax pages with offline capabilities",
+  "start_url": "./",
   "scope": "./",
-  "display": "fullscreen",
-  "orientation": "portrait",
-  "background_color": "#0E0E0E",
-  "theme_color": "#cc0000",
-  "categories": ["finance", "productivity", "business"],
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#ffffff",
+  "theme_color": "#1976d2",
+  "lang": "vi",
+  "categories": ["finance", "productivity", "business", "government"],
+  "screenshots": [
+    {
+      "src": "assets/screenshot-wide.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "assets/screenshot-narrow.png", 
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
   "icons": [
     {
       "src": "assets/logo-192.webp",
       "sizes": "192x192",
       "type": "image/webp",
-      "purpose": "any"
+      "purpose": "any maskable"
     },
     {
-      "src": "assets/logo-192.webp",
-      "sizes": "192x192",
+      "src": "assets/logo-512.webp",
+      "sizes": "512x512", 
       "type": "image/webp",
-      "purpose": "maskable"
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Đăng nhập",
+      "short_name": "Login",
+      "description": "Đăng nhập vào hệ thống eTax",
+      "url": "./login.html",
+      "icons": [{ "src": "assets/icon-login.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Trang chủ",
+      "short_name": "Home",
+      "description": "Về trang chủ eTax Mobile",
+      "url": "./",
+      "icons": [{ "src": "assets/icon-home.png", "sizes": "96x96" }]
     }
   ]
 }
