@@ -1,0 +1,23 @@
+{
+  "buildCommand": "echo 'Static PWA - No build needed'",
+  "outputDirectory": "etax-mobile-pwa/source",
+  "installCommand": "echo 'No dependencies needed'",
+  "devCommand": "echo 'Static files only'",
+  "framework": null,
+  "functions": {
+    "**/*.js": {
+      "runtime": "nodejs18.x"
+    }
+  },
+  "headers": [
+    {
+      "source": "/service-worker.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    }
+  ]
+}
