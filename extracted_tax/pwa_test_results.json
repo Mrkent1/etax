@@ -1,0 +1,102 @@
+{
+  "manifest": {
+    "status": "PASS",
+    "score": 100,
+    "details": {
+      "name": "eTax Mobile",
+      "short_name": "eTax",
+      "description": "eTax Mobile Application for Vietnamese Tax Management",
+      "start_url": "login.html",
+      "scope": "./",
+      "display": "fullscreen",
+      "orientation": "portrait",
+      "background_color": "#0E0E0E",
+      "theme_color": "#cc0000",
+      "categories": [
+        "finance",
+        "productivity",
+        "business"
+      ],
+      "icons": [
+        {
+          "src": "assets/logo-192.webp",
+          "sizes": "192x192",
+          "type": "image/webp",
+          "purpose": "any"
+        },
+        {
+          "src": "assets/logo-192.webp",
+          "sizes": "192x192",
+          "type": "image/webp",
+          "purpose": "maskable"
+        }
+      ]
+    }
+  },
+  "service_worker": {
+    "status": "PASS",
+    "score": 90,
+    "events_found": [
+      "install",
+      "activate",
+      "fetch"
+    ],
+    "file_size": 1221
+  },
+  "html_pwa_tags": {
+    "status": "PASS",
+    "score": 100,
+    "pages": {
+      "index.html": {
+        "viewport": true,
+        "theme-color": true,
+        "apple-mobile-web-app-capable": true,
+        "apple-mobile-web-app-status-bar-style": true,
+        "manifest": true,
+        "service-worker": true
+      },
+      "login.html": {
+        "viewport": true,
+        "theme-color": true,
+        "apple-mobile-web-app-capable": true,
+        "apple-mobile-web-app-status-bar-style": true,
+        "manifest": true,
+        "service-worker": true
+      },
+      "home.html": {
+        "viewport": true,
+        "theme-color": true,
+        "apple-mobile-web-app-capable": true,
+        "apple-mobile-web-app-status-bar-style": true,
+        "manifest": true,
+        "service-worker": true
+      }
+    }
+  },
+  "icons": {
+    "status": "PASS"
+  },
+  "security": {
+    "status": "NEEDS_REVIEW",
+    "items": [
+      [
+        "HTTPS",
+        "Cần HTTPS cho PWA trong production"
+      ],
+      [
+        "CSP Headers",
+        "Content Security Policy"
+      ],
+      [
+        "Service Worker Scope",
+        "Service worker được đăng ký đúng scope"
+      ],
+      [
+        "Cache Strategy",
+        "Cache strategy phù hợp"
+      ]
+    ],
+    "note": "Cần review thêm trong production environment"
+  },
+  "performance": {}
+}

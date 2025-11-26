@@ -1,0 +1,1465 @@
+{
+  "test_timestamp": "2025-11-26T19:34:04.796842",
+  "total_files": 22,
+  "html_structure_tests": {
+    "home.html": {
+      "file": "home.html",
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "suggestions": []
+    },
+    "index.html": {
+      "file": "index.html",
+      "status": "PASS",
+      "issues": [],
+      "warnings": [
+        "Missing manifest link for PWA",
+        "Missing theme-color meta tag"
+      ],
+      "suggestions": []
+    },
+    "login.html": {
+      "file": "login.html",
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "suggestions": []
+    },
+    "pages/bien-lai-dien-tu.html": {
+      "file": "pages/bien-lai-dien-tu.html",
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "suggestions": []
+    },
+    "pages/dang-ky-thue.html": {
+      "file": "pages/dang-ky-thue.html",
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "suggestions": []
+    },
+    "pages/ho-so-dang-ky-thue.html": {
+      "file": "pages/ho-so-dang-ky-thue.html",
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "suggestions": []
+    },
+    "pages/ho-so-quyet-toan-thue.html": {
+      "file": "pages/ho-so-quyet-toan-thue.html",
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "suggestions": []
+    },
+    "pages/ho-tro-quyet-toan.html": {
+      "file": "pages/ho-tro-quyet-toan.html",
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "suggestions": []
+    },
+    "pages/ho-tro.html": {
+      "file": "pages/ho-tro.html",
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "suggestions": []
+    },
+    "pages/hoa-don-dien-tu.html": {
+      "file": "pages/hoa-don-dien-tu.html",
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "suggestions": []
+    },
+    "pages/khai-thue.html": {
+      "file": "pages/khai-thue.html",
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "suggestions": []
+    },
+    "pages/nhom-chuc-nang-nop-thue.html": {
+      "file": "pages/nhom-chuc-nang-nop-thue.html",
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "suggestions": []
+    },
+    "pages/nop-thue.html": {
+      "file": "pages/nop-thue.html",
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "suggestions": []
+    },
+    "pages/thay-doi-thong-tin-npt.html": {
+      "file": "pages/thay-doi-thong-tin-npt.html",
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "suggestions": []
+    },
+    "pages/thiet-lap-ca-nhan.html": {
+      "file": "pages/thiet-lap-ca-nhan.html",
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "suggestions": []
+    },
+    "pages/thong-bao.html": {
+      "file": "pages/thong-bao.html",
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "suggestions": []
+    },
+    "pages/thong-tin-tai-khoan.html": {
+      "file": "pages/thong-tin-tai-khoan.html",
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "suggestions": []
+    },
+    "pages/thong-tin-tong-quan.html": {
+      "file": "pages/thong-tin-tong-quan.html",
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "suggestions": []
+    },
+    "pages/tien-ich.html": {
+      "file": "pages/tien-ich.html",
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "suggestions": []
+    },
+    "pages/tra-cuu-chung-tu.html": {
+      "file": "pages/tra-cuu-chung-tu.html",
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "suggestions": []
+    },
+    "pages/tra-cuu-nghia-vu-thue.html": {
+      "file": "pages/tra-cuu-nghia-vu-thue.html",
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "suggestions": []
+    },
+    "pages/tra-cuu-thong-tin-nguoi-phu-thuoc.html": {
+      "file": "pages/tra-cuu-thong-tin-nguoi-phu-thuoc.html",
+      "status": "PASS",
+      "issues": [],
+      "warnings": [],
+      "suggestions": []
+    }
+  },
+  "pwa_compliance_tests": {
+    "home.html": {
+      "file": "home.html",
+      "score": 70,
+      "max_score": 100,
+      "tests": {
+        "viewport": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Correct viewport meta tag"
+        },
+        "manifest": {
+          "score": 15,
+          "status": "PASS",
+          "details": "Manifest link found"
+        },
+        "theme_color": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Theme color meta tag found"
+        },
+        "apple_mobile": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Apple mobile web app capable tag found"
+        },
+        "icons": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing icon links"
+        },
+        "offline_ready": {
+          "score": 15,
+          "status": "PASS",
+          "details": "Service worker file exists"
+        },
+        "manifest_valid": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Manifest has required fields"
+        },
+        "performance": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "No resource preloading"
+        }
+      },
+      "pass_count": 6,
+      "total_tests": 10,
+      "percentage": 70.0
+    },
+    "index.html": {
+      "file": "index.html",
+      "score": 40,
+      "max_score": 100,
+      "tests": {
+        "viewport": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Correct viewport meta tag"
+        },
+        "manifest": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing manifest link"
+        },
+        "theme_color": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing theme color meta tag"
+        },
+        "service_worker": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing service worker registration"
+        },
+        "apple_mobile": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing apple mobile web app meta tag"
+        },
+        "icons": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing icon links"
+        },
+        "start_url": {
+          "score": 5,
+          "status": "PASS",
+          "details": "Entry point page"
+        },
+        "offline_ready": {
+          "score": 15,
+          "status": "PASS",
+          "details": "Service worker file exists"
+        },
+        "manifest_valid": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Manifest has required fields"
+        },
+        "performance": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "No resource preloading"
+        }
+      },
+      "pass_count": 4,
+      "total_tests": 10,
+      "percentage": 40.0
+    },
+    "login.html": {
+      "file": "login.html",
+      "score": 75,
+      "max_score": 100,
+      "tests": {
+        "viewport": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Correct viewport meta tag"
+        },
+        "manifest": {
+          "score": 15,
+          "status": "PASS",
+          "details": "Manifest link found"
+        },
+        "theme_color": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Theme color meta tag found"
+        },
+        "service_worker": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing service worker registration"
+        },
+        "apple_mobile": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Apple mobile web app capable tag found"
+        },
+        "icons": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing icon links"
+        },
+        "start_url": {
+          "score": 5,
+          "status": "PASS",
+          "details": "Entry point page"
+        },
+        "offline_ready": {
+          "score": 15,
+          "status": "PASS",
+          "details": "Service worker file exists"
+        },
+        "manifest_valid": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Manifest has required fields"
+        },
+        "performance": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "No resource preloading"
+        }
+      },
+      "pass_count": 7,
+      "total_tests": 10,
+      "percentage": 75.0
+    },
+    "pages/bien-lai-dien-tu.html": {
+      "file": "pages/bien-lai-dien-tu.html",
+      "score": 45,
+      "max_score": 100,
+      "tests": {
+        "viewport": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Correct viewport meta tag"
+        },
+        "manifest": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing manifest link"
+        },
+        "theme_color": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Theme color meta tag found"
+        },
+        "apple_mobile": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing apple mobile web app meta tag"
+        },
+        "icons": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing icon links"
+        },
+        "offline_ready": {
+          "score": 15,
+          "status": "PASS",
+          "details": "Service worker file exists"
+        },
+        "manifest_valid": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Manifest has required fields"
+        },
+        "performance": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "No resource preloading"
+        }
+      },
+      "pass_count": 4,
+      "total_tests": 10,
+      "percentage": 45.0
+    },
+    "pages/dang-ky-thue.html": {
+      "file": "pages/dang-ky-thue.html",
+      "score": 45,
+      "max_score": 100,
+      "tests": {
+        "viewport": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Correct viewport meta tag"
+        },
+        "manifest": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing manifest link"
+        },
+        "theme_color": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Theme color meta tag found"
+        },
+        "apple_mobile": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing apple mobile web app meta tag"
+        },
+        "icons": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing icon links"
+        },
+        "offline_ready": {
+          "score": 15,
+          "status": "PASS",
+          "details": "Service worker file exists"
+        },
+        "manifest_valid": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Manifest has required fields"
+        },
+        "performance": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "No resource preloading"
+        }
+      },
+      "pass_count": 4,
+      "total_tests": 10,
+      "percentage": 45.0
+    },
+    "pages/ho-so-dang-ky-thue.html": {
+      "file": "pages/ho-so-dang-ky-thue.html",
+      "score": 45,
+      "max_score": 100,
+      "tests": {
+        "viewport": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Correct viewport meta tag"
+        },
+        "manifest": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing manifest link"
+        },
+        "theme_color": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Theme color meta tag found"
+        },
+        "apple_mobile": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing apple mobile web app meta tag"
+        },
+        "icons": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing icon links"
+        },
+        "offline_ready": {
+          "score": 15,
+          "status": "PASS",
+          "details": "Service worker file exists"
+        },
+        "manifest_valid": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Manifest has required fields"
+        },
+        "performance": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "No resource preloading"
+        }
+      },
+      "pass_count": 4,
+      "total_tests": 10,
+      "percentage": 45.0
+    },
+    "pages/ho-so-quyet-toan-thue.html": {
+      "file": "pages/ho-so-quyet-toan-thue.html",
+      "score": 45,
+      "max_score": 100,
+      "tests": {
+        "viewport": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Correct viewport meta tag"
+        },
+        "manifest": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing manifest link"
+        },
+        "theme_color": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Theme color meta tag found"
+        },
+        "apple_mobile": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing apple mobile web app meta tag"
+        },
+        "icons": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing icon links"
+        },
+        "offline_ready": {
+          "score": 15,
+          "status": "PASS",
+          "details": "Service worker file exists"
+        },
+        "manifest_valid": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Manifest has required fields"
+        },
+        "performance": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "No resource preloading"
+        }
+      },
+      "pass_count": 4,
+      "total_tests": 10,
+      "percentage": 45.0
+    },
+    "pages/ho-tro-quyet-toan.html": {
+      "file": "pages/ho-tro-quyet-toan.html",
+      "score": 45,
+      "max_score": 100,
+      "tests": {
+        "viewport": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Correct viewport meta tag"
+        },
+        "manifest": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing manifest link"
+        },
+        "theme_color": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Theme color meta tag found"
+        },
+        "apple_mobile": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing apple mobile web app meta tag"
+        },
+        "icons": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing icon links"
+        },
+        "offline_ready": {
+          "score": 15,
+          "status": "PASS",
+          "details": "Service worker file exists"
+        },
+        "manifest_valid": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Manifest has required fields"
+        },
+        "performance": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "No resource preloading"
+        }
+      },
+      "pass_count": 4,
+      "total_tests": 10,
+      "percentage": 45.0
+    },
+    "pages/ho-tro.html": {
+      "file": "pages/ho-tro.html",
+      "score": 45,
+      "max_score": 100,
+      "tests": {
+        "viewport": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Correct viewport meta tag"
+        },
+        "manifest": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing manifest link"
+        },
+        "theme_color": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Theme color meta tag found"
+        },
+        "apple_mobile": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing apple mobile web app meta tag"
+        },
+        "icons": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing icon links"
+        },
+        "offline_ready": {
+          "score": 15,
+          "status": "PASS",
+          "details": "Service worker file exists"
+        },
+        "manifest_valid": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Manifest has required fields"
+        },
+        "performance": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "No resource preloading"
+        }
+      },
+      "pass_count": 4,
+      "total_tests": 10,
+      "percentage": 45.0
+    },
+    "pages/hoa-don-dien-tu.html": {
+      "file": "pages/hoa-don-dien-tu.html",
+      "score": 45,
+      "max_score": 100,
+      "tests": {
+        "viewport": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Correct viewport meta tag"
+        },
+        "manifest": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing manifest link"
+        },
+        "theme_color": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Theme color meta tag found"
+        },
+        "apple_mobile": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing apple mobile web app meta tag"
+        },
+        "icons": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing icon links"
+        },
+        "offline_ready": {
+          "score": 15,
+          "status": "PASS",
+          "details": "Service worker file exists"
+        },
+        "manifest_valid": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Manifest has required fields"
+        },
+        "performance": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "No resource preloading"
+        }
+      },
+      "pass_count": 4,
+      "total_tests": 10,
+      "percentage": 45.0
+    },
+    "pages/khai-thue.html": {
+      "file": "pages/khai-thue.html",
+      "score": 45,
+      "max_score": 100,
+      "tests": {
+        "viewport": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Correct viewport meta tag"
+        },
+        "manifest": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing manifest link"
+        },
+        "theme_color": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Theme color meta tag found"
+        },
+        "apple_mobile": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing apple mobile web app meta tag"
+        },
+        "icons": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing icon links"
+        },
+        "offline_ready": {
+          "score": 15,
+          "status": "PASS",
+          "details": "Service worker file exists"
+        },
+        "manifest_valid": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Manifest has required fields"
+        },
+        "performance": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "No resource preloading"
+        }
+      },
+      "pass_count": 4,
+      "total_tests": 10,
+      "percentage": 45.0
+    },
+    "pages/nhom-chuc-nang-nop-thue.html": {
+      "file": "pages/nhom-chuc-nang-nop-thue.html",
+      "score": 45,
+      "max_score": 100,
+      "tests": {
+        "viewport": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Correct viewport meta tag"
+        },
+        "manifest": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing manifest link"
+        },
+        "theme_color": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Theme color meta tag found"
+        },
+        "apple_mobile": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing apple mobile web app meta tag"
+        },
+        "icons": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing icon links"
+        },
+        "offline_ready": {
+          "score": 15,
+          "status": "PASS",
+          "details": "Service worker file exists"
+        },
+        "manifest_valid": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Manifest has required fields"
+        },
+        "performance": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "No resource preloading"
+        }
+      },
+      "pass_count": 4,
+      "total_tests": 10,
+      "percentage": 45.0
+    },
+    "pages/nop-thue.html": {
+      "file": "pages/nop-thue.html",
+      "score": 45,
+      "max_score": 100,
+      "tests": {
+        "viewport": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Correct viewport meta tag"
+        },
+        "manifest": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing manifest link"
+        },
+        "theme_color": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Theme color meta tag found"
+        },
+        "apple_mobile": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing apple mobile web app meta tag"
+        },
+        "icons": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing icon links"
+        },
+        "offline_ready": {
+          "score": 15,
+          "status": "PASS",
+          "details": "Service worker file exists"
+        },
+        "manifest_valid": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Manifest has required fields"
+        },
+        "performance": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "No resource preloading"
+        }
+      },
+      "pass_count": 4,
+      "total_tests": 10,
+      "percentage": 45.0
+    },
+    "pages/thay-doi-thong-tin-npt.html": {
+      "file": "pages/thay-doi-thong-tin-npt.html",
+      "score": 45,
+      "max_score": 100,
+      "tests": {
+        "viewport": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Correct viewport meta tag"
+        },
+        "manifest": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing manifest link"
+        },
+        "theme_color": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Theme color meta tag found"
+        },
+        "apple_mobile": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing apple mobile web app meta tag"
+        },
+        "icons": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing icon links"
+        },
+        "offline_ready": {
+          "score": 15,
+          "status": "PASS",
+          "details": "Service worker file exists"
+        },
+        "manifest_valid": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Manifest has required fields"
+        },
+        "performance": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "No resource preloading"
+        }
+      },
+      "pass_count": 4,
+      "total_tests": 10,
+      "percentage": 45.0
+    },
+    "pages/thiet-lap-ca-nhan.html": {
+      "file": "pages/thiet-lap-ca-nhan.html",
+      "score": 45,
+      "max_score": 100,
+      "tests": {
+        "viewport": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Correct viewport meta tag"
+        },
+        "manifest": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing manifest link"
+        },
+        "theme_color": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Theme color meta tag found"
+        },
+        "apple_mobile": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing apple mobile web app meta tag"
+        },
+        "icons": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing icon links"
+        },
+        "offline_ready": {
+          "score": 15,
+          "status": "PASS",
+          "details": "Service worker file exists"
+        },
+        "manifest_valid": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Manifest has required fields"
+        },
+        "performance": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "No resource preloading"
+        }
+      },
+      "pass_count": 4,
+      "total_tests": 10,
+      "percentage": 45.0
+    },
+    "pages/thong-bao.html": {
+      "file": "pages/thong-bao.html",
+      "score": 45,
+      "max_score": 100,
+      "tests": {
+        "viewport": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Correct viewport meta tag"
+        },
+        "manifest": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing manifest link"
+        },
+        "theme_color": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Theme color meta tag found"
+        },
+        "apple_mobile": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing apple mobile web app meta tag"
+        },
+        "icons": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing icon links"
+        },
+        "offline_ready": {
+          "score": 15,
+          "status": "PASS",
+          "details": "Service worker file exists"
+        },
+        "manifest_valid": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Manifest has required fields"
+        },
+        "performance": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "No resource preloading"
+        }
+      },
+      "pass_count": 4,
+      "total_tests": 10,
+      "percentage": 45.0
+    },
+    "pages/thong-tin-tai-khoan.html": {
+      "file": "pages/thong-tin-tai-khoan.html",
+      "score": 45,
+      "max_score": 100,
+      "tests": {
+        "viewport": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Correct viewport meta tag"
+        },
+        "manifest": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing manifest link"
+        },
+        "theme_color": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Theme color meta tag found"
+        },
+        "apple_mobile": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing apple mobile web app meta tag"
+        },
+        "icons": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing icon links"
+        },
+        "offline_ready": {
+          "score": 15,
+          "status": "PASS",
+          "details": "Service worker file exists"
+        },
+        "manifest_valid": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Manifest has required fields"
+        },
+        "performance": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "No resource preloading"
+        }
+      },
+      "pass_count": 4,
+      "total_tests": 10,
+      "percentage": 45.0
+    },
+    "pages/thong-tin-tong-quan.html": {
+      "file": "pages/thong-tin-tong-quan.html",
+      "score": 45,
+      "max_score": 100,
+      "tests": {
+        "viewport": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Correct viewport meta tag"
+        },
+        "manifest": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing manifest link"
+        },
+        "theme_color": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Theme color meta tag found"
+        },
+        "apple_mobile": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing apple mobile web app meta tag"
+        },
+        "icons": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing icon links"
+        },
+        "offline_ready": {
+          "score": 15,
+          "status": "PASS",
+          "details": "Service worker file exists"
+        },
+        "manifest_valid": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Manifest has required fields"
+        },
+        "performance": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "No resource preloading"
+        }
+      },
+      "pass_count": 4,
+      "total_tests": 10,
+      "percentage": 45.0
+    },
+    "pages/tien-ich.html": {
+      "file": "pages/tien-ich.html",
+      "score": 45,
+      "max_score": 100,
+      "tests": {
+        "viewport": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Correct viewport meta tag"
+        },
+        "manifest": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing manifest link"
+        },
+        "theme_color": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Theme color meta tag found"
+        },
+        "apple_mobile": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing apple mobile web app meta tag"
+        },
+        "icons": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing icon links"
+        },
+        "offline_ready": {
+          "score": 15,
+          "status": "PASS",
+          "details": "Service worker file exists"
+        },
+        "manifest_valid": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Manifest has required fields"
+        },
+        "performance": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "No resource preloading"
+        }
+      },
+      "pass_count": 4,
+      "total_tests": 10,
+      "percentage": 45.0
+    },
+    "pages/tra-cuu-chung-tu.html": {
+      "file": "pages/tra-cuu-chung-tu.html",
+      "score": 45,
+      "max_score": 100,
+      "tests": {
+        "viewport": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Correct viewport meta tag"
+        },
+        "manifest": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing manifest link"
+        },
+        "theme_color": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Theme color meta tag found"
+        },
+        "apple_mobile": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing apple mobile web app meta tag"
+        },
+        "icons": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing icon links"
+        },
+        "offline_ready": {
+          "score": 15,
+          "status": "PASS",
+          "details": "Service worker file exists"
+        },
+        "manifest_valid": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Manifest has required fields"
+        },
+        "performance": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "No resource preloading"
+        }
+      },
+      "pass_count": 4,
+      "total_tests": 10,
+      "percentage": 45.0
+    },
+    "pages/tra-cuu-nghia-vu-thue.html": {
+      "file": "pages/tra-cuu-nghia-vu-thue.html",
+      "score": 45,
+      "max_score": 100,
+      "tests": {
+        "viewport": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Correct viewport meta tag"
+        },
+        "manifest": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing manifest link"
+        },
+        "theme_color": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Theme color meta tag found"
+        },
+        "apple_mobile": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing apple mobile web app meta tag"
+        },
+        "icons": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing icon links"
+        },
+        "offline_ready": {
+          "score": 15,
+          "status": "PASS",
+          "details": "Service worker file exists"
+        },
+        "manifest_valid": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Manifest has required fields"
+        },
+        "performance": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "No resource preloading"
+        }
+      },
+      "pass_count": 4,
+      "total_tests": 10,
+      "percentage": 45.0
+    },
+    "pages/tra-cuu-thong-tin-nguoi-phu-thuoc.html": {
+      "file": "pages/tra-cuu-thong-tin-nguoi-phu-thuoc.html",
+      "score": 45,
+      "max_score": 100,
+      "tests": {
+        "viewport": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Correct viewport meta tag"
+        },
+        "manifest": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing manifest link"
+        },
+        "theme_color": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Theme color meta tag found"
+        },
+        "apple_mobile": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing apple mobile web app meta tag"
+        },
+        "icons": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "Missing icon links"
+        },
+        "offline_ready": {
+          "score": 15,
+          "status": "PASS",
+          "details": "Service worker file exists"
+        },
+        "manifest_valid": {
+          "score": 10,
+          "status": "PASS",
+          "details": "Manifest has required fields"
+        },
+        "performance": {
+          "score": 0,
+          "status": "FAIL",
+          "details": "No resource preloading"
+        }
+      },
+      "pass_count": 4,
+      "total_tests": 10,
+      "percentage": 45.0
+    }
+  },
+  "javascript_tests": {
+    "home.html": {
+      "file": "home.html",
+      "functional_tests": {
+        "home": {
+          "status": "PASS",
+          "issues": [],
+          "has_navigation": true,
+          "has_auth_check": true
+        }
+      },
+      "js_files": [
+        "home.js"
+      ],
+      "errors": []
+    },
+    "index.html": {
+      "file": "index.html",
+      "functional_tests": {},
+      "js_files": [],
+      "errors": []
+    },
+    "login.html": {
+      "file": "login.html",
+      "functional_tests": {},
+      "js_files": [
+        "login.js"
+      ],
+      "errors": []
+    },
+    "pages/bien-lai-dien-tu.html": {
+      "file": "pages/bien-lai-dien-tu.html",
+      "functional_tests": {},
+      "js_files": [],
+      "errors": []
+    },
+    "pages/dang-ky-thue.html": {
+      "file": "pages/dang-ky-thue.html",
+      "functional_tests": {},
+      "js_files": [],
+      "errors": []
+    },
+    "pages/ho-so-dang-ky-thue.html": {
+      "file": "pages/ho-so-dang-ky-thue.html",
+      "functional_tests": {},
+      "js_files": [],
+      "errors": []
+    },
+    "pages/ho-so-quyet-toan-thue.html": {
+      "file": "pages/ho-so-quyet-toan-thue.html",
+      "functional_tests": {},
+      "js_files": [],
+      "errors": []
+    },
+    "pages/ho-tro-quyet-toan.html": {
+      "file": "pages/ho-tro-quyet-toan.html",
+      "functional_tests": {},
+      "js_files": [],
+      "errors": []
+    },
+    "pages/ho-tro.html": {
+      "file": "pages/ho-tro.html",
+      "functional_tests": {},
+      "js_files": [],
+      "errors": []
+    },
+    "pages/hoa-don-dien-tu.html": {
+      "file": "pages/hoa-don-dien-tu.html",
+      "functional_tests": {},
+      "js_files": [],
+      "errors": []
+    },
+    "pages/khai-thue.html": {
+      "file": "pages/khai-thue.html",
+      "functional_tests": {},
+      "js_files": [],
+      "errors": []
+    },
+    "pages/nhom-chuc-nang-nop-thue.html": {
+      "file": "pages/nhom-chuc-nang-nop-thue.html",
+      "functional_tests": {},
+      "js_files": [],
+      "errors": []
+    },
+    "pages/nop-thue.html": {
+      "file": "pages/nop-thue.html",
+      "functional_tests": {},
+      "js_files": [],
+      "errors": []
+    },
+    "pages/thay-doi-thong-tin-npt.html": {
+      "file": "pages/thay-doi-thong-tin-npt.html",
+      "functional_tests": {},
+      "js_files": [],
+      "errors": []
+    },
+    "pages/thiet-lap-ca-nhan.html": {
+      "file": "pages/thiet-lap-ca-nhan.html",
+      "functional_tests": {},
+      "js_files": [],
+      "errors": []
+    },
+    "pages/thong-bao.html": {
+      "file": "pages/thong-bao.html",
+      "functional_tests": {},
+      "js_files": [],
+      "errors": []
+    },
+    "pages/thong-tin-tai-khoan.html": {
+      "file": "pages/thong-tin-tai-khoan.html",
+      "functional_tests": {},
+      "js_files": [],
+      "errors": []
+    },
+    "pages/thong-tin-tong-quan.html": {
+      "file": "pages/thong-tin-tong-quan.html",
+      "functional_tests": {},
+      "js_files": [],
+      "errors": []
+    },
+    "pages/tien-ich.html": {
+      "file": "pages/tien-ich.html",
+      "functional_tests": {},
+      "js_files": [],
+      "errors": []
+    },
+    "pages/tra-cuu-chung-tu.html": {
+      "file": "pages/tra-cuu-chung-tu.html",
+      "functional_tests": {},
+      "js_files": [],
+      "errors": []
+    },
+    "pages/tra-cuu-nghia-vu-thue.html": {
+      "file": "pages/tra-cuu-nghia-vu-thue.html",
+      "functional_tests": {},
+      "js_files": [],
+      "errors": []
+    },
+    "pages/tra-cuu-thong-tin-nguoi-phu-thuoc.html": {
+      "file": "pages/tra-cuu-thong-tin-nguoi-phu-thuoc.html",
+      "functional_tests": {},
+      "js_files": [],
+      "errors": []
+    }
+  },
+  "network_tests": {
+    "manifest_test": true,
+    "service_worker_test": true,
+    "cors_test": false,
+    "errors": []
+  },
+  "summary": {
+    "total_bugs": 88,
+    "auto_fixes_applied": 26,
+    "pwa_scores": [
+      70.0,
+      40.0,
+      75.0,
+      45.0,
+      45.0,
+      45.0,
+      45.0,
+      45.0,
+      45.0,
+      45.0,
+      45.0,
+      45.0,
+      45.0,
+      45.0,
+      45.0,
+      45.0,
+      45.0,
+      45.0,
+      45.0,
+      45.0,
+      45.0,
+      45.0
+    ],
+    "average_pwa_score": 47.27272727272727
+  }
+}

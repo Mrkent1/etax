@@ -1,0 +1,111 @@
+## Project: eTax Mobile HTML (Clone UX/UI từ app gốc)
+
+### Mục tiêu chung
+- **Mục tiêu**: Clone lại UX/UI eTax Mobile từ bộ ảnh screenshot (thư mục `Clone 2 -...`) sang phiên bản HTML tĩnh trong repo hiện tại.
+- **Ưu tiên**:
+  - Giao diện giống ảnh gốc nhất có thể (bố cục, icon, text, màu).
+  - Luồng điều hướng người dùng đúng với sitemap đã có (login → home → pages).
+  - Giữ code HTML/CSS/JS đơn giản, dễ hiểu, không framework nặng.
+
+### Vai trò & cách giao tiếp với anh Nghĩa
+- PO là **anh Nghĩa** (không code, không quản trị hệ thống).
+- Gọi anh là **“anh Nghĩa”**, giải thích ngắn gọn, dễ hiểu, hạn chế thuật ngữ.
+- Nếu buộc phải dùng thuật ngữ kỹ thuật → giải thích ngay theo ngôn ngữ đời thường.
+- Không tự viết tài liệu dài dòng trừ khi anh yêu cầu (ngoại lệ: file rule/agent này).
+
+### Cấu trúc project cần tôn trọng
+- Root chính: `/home/mrkent/Tài liệu/html-version`
+- Thư mục quan trọng:
+  - `assets/`: toàn bộ icon & hình (.webp, .svg), dùng để clone UI.
+  - `css/`, `home.css`, `login.css`: style chung + style cho từng màn chính.
+  - `js/`: logic dùng chung (`auth.js`, `utils.js`).
+  - `pages/`: tất cả màn hình con (đăng ký thuế, khai thuế, tra cứu, hồ sơ, hỗ trợ…).
+  - `Clone 2 -2025.../Clone 2`: **ảnh screenshot gốc**, dùng làm chuẩn đối chiếu UI.
+
+### Quy tắc clone UX/UI từ screenshot
+- **1. Mapping màn hình → file**
+  - Đăng nhập → `login.html` (+ `login.js`).
+  - Trang chủ (home với avatar, grid dịch vụ) → `home.html` (+ `home.js`).
+  - Đăng ký thuế → `pages/dang-ky-thue.html`.
+  - Khai thuế → `pages/khai-thue.html`.
+  - Hoá đơn điện tử → `pages/hoa-don-dien-tu.html`.
+  - Hỗ trợ quyết toán, nhóm nộp thuế, tra cứu nghĩa vụ, tiện ích, hỗ trợ, thông báo, thiết lập cá nhân → các file cùng tên trong `pages/`.
+  - Thông tin tài khoản (avatar to + 4 nút đỏ + bảng thông tin) → `pages/thong-tin-tai-khoan.html`.
+
+- **2. Ưu tiên dùng lại icon hiện có trong `assets/`**
+  - Nhóm icon:
+    - `index*.webp`: grid dịch vụ trang chủ, sidebar.
+    - `dk*.webp`, `hs*.webp`, `nt*.webp`: Đăng ký thuế, hồ sơ, người phụ thuộc.
+    - `kt*.webp`: Khai thuế.
+    - `hddt*.webp`: Hoá đơn điện tử.
+    - `ti*.webp`, `tienich.webp`: Tiện ích.
+    - `ht*.webp`, `htqt*.webp`, `hotro.webp`: Hỗ trợ, hỗ trợ quyết toán.
+    - `avatar.webp`, `logo-192.webp`, `logo.webp`: avatar & logo chung.
+  - Nếu screenshot có icon mới chưa có file:
+    - Tạo file `.webp` mới cùng kích thước (tầm 48–76px).
+    - Đặt tên theo nhóm (VD: `kt5.webp`, `nt9.webp`) và đặt trong `assets/`.
+
+- **3. Layout & style**
+  - Header đỏ trên các trang con dùng chung cấu trúc:
+    - `header.page-header` + `.header-back` + `.header-title` + `.header-home`/`.header-spacer`.
+  - Card/chức năng:
+    - Dùng class chung: `.section-card`, `.section-card-icon`, `.section-card-text`.
+    - Xuống dòng trong label bằng `<br>` để khớp với ảnh thật.
+  - Không thay đổi cấu trúc HTML lớn trừ khi thật sự cần; ưu tiên chỉnh CSS.
+
+- **4. Field & dữ liệu**
+  - Field có dữ liệu thật:
+    - Đăng nhập: `#mst-input`, `#password-input`, `#mst-error`, `#error-message`.
+    - Thông tin tài khoản: `#account-mst`, `#account-fullname`, `#account-address`, `#account-tax-office`, `#account-phone`, `#account-email`.
+  - Dữ liệu user/session lấy từ:
+    - `js/auth.js` (`loginUserByMst`, `getUserSession`, `getProfile`, `logoutUser`, `isAuthenticated`).
+  - Không gắn API thật; chỉ dùng localStorage như đã có, trừ khi anh Nghĩa yêu cầu mở rộng.
+
+### Luồng điều hướng phải giữ
+- `index.html` → tự redirect sang `login.html`.
+- `login.html`:
+  - Nếu có session → auto sang `home.html`.
+  - Đăng nhập thành công → `home.html`.
+- `home.html`:
+  - Nếu chưa đăng nhập (`isAuthenticated()` false) → quay lại `login.html`.
+  - Từ card/grid/ sidebar → đi tới các `pages/*.html` tương ứng.
+- Mọi trang trong `pages/`:
+  - Được bảo vệ bởi `requireAuth('../login.html')`.
+  - Nếu không đăng nhập → redirect login.
+  - Có nút back về `../home.html` ở header.
+- Đăng xuất:
+  - Gọi `logoutUser()` + `navigateTo('login.html')`.
+
+### Sử dụng công cụ (tools) trong Cursor
+- **File & code tools**:
+  - Dùng `read_file`, `apply_patch`, `grep`, `list_dir` để đọc/chỉnh sửa mã.
+  - Không tạo binary dài hoặc dữ liệu vô nghĩa.
+- **Browser tools (bắt buộc dùng khi chỉnh giao diện)**:
+  - Sau khi thay đổi HTML/CSS/JS liên quan UI:
+    - Mở trang trong browser (`mcp_cursor-ide-browser_*`) để kiểm tra:
+      - Vị trí icon, text, card, header so với screenshot.
+      - Luồng điều hướng (click card, menu, back, logout).
+  - Có thể dùng:
+    - `browser_snapshot` để lấy cấu trúc UI thực tế.
+    - `browser_take_screenshot` nếu cần so sánh trực quan với ảnh trong `Clone 2`.
+
+### Phong cách code
+- HTML:
+  - Ưu tiên semantic, nhưng không quá cứng nhắc (section, header, main…).
+  - Giữ id/class hiện có, tránh đổi tên để không phá JS.
+- CSS:
+  - Tối ưu trong các file sẵn có (`common.css`, `home.css`, file `.css` trong `pages/`).
+  - Không thêm framework ngoài (Bootstrap, Tailwind, v.v.).
+- JS:
+  - Giữ kiểu module hiện tại (`type="module"`), import từ `js/utils.js`, `js/auth.js`.
+  - Dùng các helper có sẵn: `navigateTo`, `requireAuth`, `showError`, `hideError`.
+
+### Khi làm việc với anh Nghĩa
+- Giải thích:
+  - **Mục tiêu** → **Cách làm** → **Tại sao** → **Ví dụ**.
+  - Dùng ví dụ đời thường (không giải thích kiểu quá kỹ thuật).
+- Khi có lỗi:
+  - Giải thích lỗi đơn giản (VD: “trình duyệt không tìm thấy file ảnh này vì đường dẫn sai”).
+  - Tự sửa và nói rõ đã sửa gì.
+
+

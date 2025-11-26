@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#C60000">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Đăng nhập - eTax Mobile</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <div class="wrapper" id="login-wrapper">
+    <!-- Bottom Navigation -->
+    <div class="bottomNav" id="bottom-nav">
+      <button type="button" aria-label="QR tem">
+        <img src="assets/icon-qr.webp" alt="" width="30" height="30">
+        QR tem
+      </button>
+      <button type="button" aria-label="Tiện ích">
+        <img src="assets/tienich.webp" alt="" width="30" height="30">
+        Tiện ích
+      </button>
+      <button type="button" aria-label="Hỗ trợ">
+        <img src="assets/hotro.webp" alt="" width="30" height="30">
+        Hỗ trợ
+      </button>
+      <button type="button" aria-label="Chia sẻ">
+        <img src="assets/chiase.webp" alt="" width="30" height="30">
+        Chia sẻ
+      </button>
+    </div>
+
+    <!-- Content -->
+    <div class="content" id="login-content">
+      <!-- Logo -->
+      <div class="logo">
+        <img 
+          src="assets/logo-192.webp" 
+          alt="eTax Logo" 
+          width="96" 
+          height="96"
+        >
+        <h1>eTax Mobile</h1>
+      </div>
+
+      <!-- Login Form -->
+      <form class="form" id="login-form">
+        <!-- MST Input -->
+        <div class="inputGroup">
+          <label for="mst-input" class="sr-only">Mã số thuế</label>
+          <div class="inputRow">
+            <img 
+              src="assets/icon-mst-new.svg" 
+              alt="" 
+              class="icon"
+              width="20" 
+              height="20"
+            >
+            <input
+              id="mst-input"
+              type="text"
+              inputmode="numeric"
+              placeholder="Mã số thuế"
+              autocomplete="username"
+              required
+            >
+          </div>
+          <div class="inputError" id="mst-error" role="alert" aria-live="polite"></div>
+        </div>
+
+        <!-- Password Input -->
+        <div class="inputGroup">
+          <label for="password-input" class="sr-only">Mật khẩu</label>
+          <div class="inputRow">
+            <img 
+              src="assets/icon-password-new.svg" 
+              alt="" 
+              class="icon"
+              width="20" 
+              height="20"
+            >
+            <input
+              id="password-input"
+              type="password"
+              placeholder="Mật khẩu"
+              autocomplete="current-password"
+              required
+            >
+            <button 
+              type="button" 
+              class="passwordToggle" 
+              id="password-toggle"
+              aria-label="Ẩn mật khẩu"
+            >
+              <img
+                src="assets/icon-eye-closed.svg"
+                alt=""
+                width="20"
+                height="20"
+                id="password-toggle-icon"
+              >
+            </button>
+          </div>
+        </div>
+
+        <!-- Error Message -->
+        <div class="errorMessage" id="error-message" role="alert" aria-live="polite"></div>
+
+        <!-- Help Links -->
+        <div class="helpLinks">
+          <a href="#">Quên tài khoản (Mã số thuế)?</a>
+          <a href="#">Quên mật khẩu?</a>
+        </div>
+
+        <!-- Login Button -->
+        <div class="loginButtonContainer">
+          <button type="submit" class="loginButton" id="login-button" aria-label="Đăng nhập vào hệ thống eTax">
+            Đăng nhập
+          </button>
+          <div class="qrIcon">
+            <img src="assets/icon-qr.webp" alt="" width="28" height="28">
+          </div>
+        </div>
+
+        <!-- VNeID Button -->
+        <button type="button" class="vnidButton" aria-label="Đăng nhập bằng tài khoản Định danh điện tử VNeID">
+          <div class="vnidText">
+            Đăng nhập bằng tài khoản<br>
+            Định danh điện tử
+          </div>
+          <img src="assets/vnid.webp" alt="VNeID Logo" width="44" height="44">
+        </button>
+
+        <!-- Signup Section -->
+        <div class="signupSection">
+          <p><span>Bạn chưa có tài khoản?</span><a href="#">Đăng ký ngay</a></p>
+          <p>Người nước ngoài hoặc người Việt Nam sống ở nước ngoài không có số định danh cá nhân-chưa có mã số thuế? <a href="#">Đăng ký thuế ngay.</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="login.js"></script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(function(registration) {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch(function(registrationError) {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
+

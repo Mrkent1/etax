@@ -1,0 +1,27 @@
+{
+  "name": "eTax Mobile",
+  "short_name": "eTax",
+  "description": "eTax Mobile Application for Vietnamese Tax Management",
+  "start_url": "login.html",
+  "scope": "./",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "background_color": "#0E0E0E",
+  "theme_color": "#cc0000",
+  "categories": ["finance", "productivity", "business"],
+  "icons": [
+    {
+      "src": "assets/logo-192.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/logo-192.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "maskable"
+    }
+  ]
+}
+

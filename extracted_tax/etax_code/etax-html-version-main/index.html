@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta name="theme-color" content="#cc0000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <!-- Performance optimization -->
+    <link rel="preload" href="/manifest.json" as="fetch" crossorigin="anonymous">
+    <link rel="preload" href="/css/common.css" as="style">
+    <link rel="preload" href="/js/auth.js" as="script">
+    <link rel="preload" href="/service-worker.js" as="script">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+<title>eTax Mobile</title>
+  <script>
+    // Redirect to login page
+    window.location.href = 'login.html';
+  </script>
+
+    <!-- Google Analytics for PWA (Replace GA_MEASUREMENT_ID) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+        
+        // PWA specific tracking
+        window.addEventListener('beforeinstallprompt', (e) => {
+            gtag('event', 'pwa_install_prompt');
+            console.log('PWA install prompt shown');
+        });
+        
+        window.addEventListener('appinstalled', (evt) => {
+            gtag('event', 'pwa_installed');
+            console.log('PWA installed');
+        });
+        
+        // Service worker events
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.addEventListener('message', (event) => {
+                if (event.data && event.data.type === 'OFFLINE_READY') {
+                    gtag('event', 'pwa_offline_ready');
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+  <p>Đang chuyển hướng...</p>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(function(registration) {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch(function(registrationError) {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
+
