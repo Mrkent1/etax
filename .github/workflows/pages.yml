@@ -1,0 +1,45 @@
+name: GitHub Pages Deployment
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Copy source files
+        run: |
+          cp -r etax-mobile-pwa/source/* ./
+          # Copy 404.html for SPA routing
+          cp etax-mobile-pwa/source/404.html ./
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  validate:
+    runs-on: ubuntu-latest
+    needs: deploy
+    steps:
+      - name: Validation
+        run: |
+          echo "✅ GitHub Pages deployed to: ${{ steps.deployment.outputs.page_url }}"
