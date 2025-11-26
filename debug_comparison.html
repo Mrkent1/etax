@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Debug Comparison - eTax Mobile Header</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .comparison-container {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+    
+    .reference-section, .current-section {
+      flex: 1;
+      min-width: 300px;
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    h2 {
+      margin-top: 0;
+      color: #333;
+      border-bottom: 2px solid #C60000;
+      padding-bottom: 10px;
+    }
+    
+    .image-container {
+      position: relative;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 10px 0;
+    }
+    
+    .reference-img, .current-img {
+      width: 100%;
+      display: block;
+    }
+    
+    .debug-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 10;
+    }
+    
+    .grid-overlay {
+      background-image: 
+        linear-gradient(to right, rgba(255, 0, 0, 0.2) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 0, 0, 0.2) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+    
+    .header-highlight {
+      position: absolute;
+      border: 2px solid #00ff00;
+      background: rgba(0, 255, 0, 0.1);
+    }
+    
+    .controls {
+      margin: 20px 0;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    
+    button {
+      padding: 8px 15px;
+      background: #C60000;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    button:hover {
+      background: #a00000;
+    }
+    
+    .analysis-results {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+    
+    .style-info {
+      margin: 10px 0;
+      padding: 10px;
+      background: #f9f9f9;
+      border-left: 3px solid #C60000;
+    }
+    
+    .issues-list {
+      margin: 15px 0;
+    }
+    
+    .issue {
+      padding: 8px;
+      margin: 5px 0;
+      border-radius: 4px;
+    }
+    
+    .high { background: #ffebee; border-left: 3px solid #f44336; }
+    .medium { background: #fff3e0; border-left: 3px solid #ff9800; }
+    .low { background: #e8f5e9; border-left: 3px solid #4caf50; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Debug Comparison - eTax Mobile Header</h1>
+    
+    <div class="controls">
+      <button id="toggleGrid">Toggle Grid Overlay</button>
+      <button id="highlightHeader">Highlight Header</button>
+      <button id="measureElements">Measure Elements</button>
+      <button id="compareColors">Compare Colors</button>
+    </div>
+    
+    <div class="comparison-container">
+      <div class="reference-section">
+        <h2>Reference Image</h2>
+        <div class="image-container">
+          <img id="reference-img" class="reference-img" src="/workspace/user_input_files/image.png" alt="Reference App Screenshot">
+          <div id="reference-overlay" class="debug-overlay" style="display: none;">
+            <div class="grid-overlay" style="display: none;"></div>
+            <div id="reference-header-highlight" class="header-highlight" style="display: none; top: 50px; left: 50px; width: 200px; height: 100px;"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="current-section">
+        <h2>Current Implementation</h2>
+        <div class="image-container">
+          <iframe id="current-iframe" src="http://localhost:8000/login.html" width="100%" height="600" style="border: 1px solid #ddd; border-radius: 4px;"></iframe>
+          <div id="current-overlay" class="debug-overlay" style="display: none;">
+            <div class="grid-overlay" style="display: none;"></div>
+            <div id="current-header-highlight" class="header-highlight" style="display: none;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="analysis-results">
+      <h2>Analysis Results</h2>
+      
+      <div class="style-info">
+        <h3>Header Styles</h3>
+        <p><strong>Font Size:</strong> 28px</p>
+        <p><strong>Font Weight:</strong> 700</p>
+        <p><strong>Color:</strong> var(--login-text) [typically #ffffff]</p>
+        <p><strong>Text Shadow:</strong> 0 2px 6px rgba(0, 0, 0, 0.35)</p>
+        <p><strong>Margin Top:</strong> 16px</p>
+      </div>
+      
+      <div class="issues-list">
+        <h3>Identified Issues</h3>
+        <div class="issue high">
+          <strong>High: Color Accuracy</strong> - Need to verify exact RGB values match reference image
+        </div>
+        <div class="issue medium">
+          <strong>Medium: Font Family</strong> - Font family not explicitly set, relying on system default
+        </div>
+        <div class="issue medium">
+          <strong>Medium: Viewport Scale</strong> - Need to verify mobile viewport scale matches reference app
+        </div>
+        <div class="issue low">
+          <strong>Low: Text Alignment</strong> - Verify text alignment matches reference
+        </div>
+      </div>
+      
+      <div class="style-info">
+        <h3>Suggested Fixes</h3>
+        <ul>
+          <li>Ensure .logo h1 uses font-family: system-ui, -apple-system, sans-serif</li>
+          <li>Verify --login-text variable resolves to correct white color</li>
+          <li>Check text-shadow values match reference exactly</li>
+          <li>Validate all measurements (margins, padding) against reference</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Toggle grid overlay
+      document.getElementById('toggleGrid').addEventListener('click', function() {
+        const refGrid = document.querySelector('#reference-overlay .grid-overlay');
+        const curGrid = document.querySelector('#current-overlay .grid-overlay');
+        
+        if (refGrid.style.display === 'none') {
+          refGrid.style.display = 'block';
+          curGrid.style.display = 'block';
+          this.textContent = 'Hide Grid';
+        } else {
+          refGrid.style.display = 'none';
+          curGrid.style.display = 'none';
+          this.textContent = 'Show Grid';
+        }
+      });
+      
+      // Highlight header
+      document.getElementById('highlightHeader').addEventListener('click', function() {
+        const refHighlight = document.getElementById('reference-header-highlight');
+        const curHighlight = document.getElementById('current-header-highlight');
+        
+        if (refHighlight.style.display === 'none') {
+          refHighlight.style.display = 'block';
+          curHighlight.style.display = 'block';
+          this.textContent = 'Hide Highlight';
+        } else {
+          refHighlight.style.display = 'none';
+          curHighlight.style.display = 'none';
+          this.textContent = 'Show Highlight';
+        }
+      });
+      
+      // Measure elements
+      document.getElementById('measureElements').addEventListener('click', function() {
+        alert('Measuring elements... In a real implementation, this would measure and compare dimensions between reference and current implementation.');
+      });
+      
+      // Compare colors
+      document.getElementById('compareColors').addEventListener('click', function() {
+        alert('Comparing colors... In a real implementation, this would extract and compare color values from both images.');
+      });
+    });
+  </script>
+</body>
+</html>

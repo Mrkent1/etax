@@ -1,0 +1,76 @@
+{
+  "debugConfig": {
+    "gridSize": 8,
+    "primaryColor": "#ff00ff",
+    "secondaryColor": "#00ffff",
+    "warningColor": "#ffff00",
+    "elementOutlines": {
+      "header": "rgba(255, 0, 0, 0.5)",
+      "footer": "rgba(0, 255, 0, 0.5)",
+      "button": "rgba(0, 0, 255, 0.5)",
+      "input": "rgba(255, 255, 0, 0.5)",
+      "card": "rgba(255, 0, 255, 0.5)",
+      "textPrimary": "rgba(128, 0, 128, 0.5)",
+      "textSecondary": "rgba(128, 128, 128, 0.5)",
+      "textSuccess": "rgba(0, 128, 0, 0.5)",
+      "textWarning": "rgba(255, 165, 0, 0.5)",
+      "textDanger": "rgba(255, 0, 0, 0.5)"
+    },
+    "mobileViewport": {
+      "width": 414,
+      "height": 896,
+      "deviceScaleFactor": 2,
+      "isMobile": true,
+      "hasTouch": true,
+      "isLandscape": false
+    },
+    "tolerance": {
+      "pixelDiff": 2,
+      "colorDiff": 5,
+      "fontSizeDiff": 1,
+      "spacingDiff": 2
+    },
+    "referenceScreenshots": {
+      "login": "/workspace/reference_screenshots/login_reference.png",
+      "home": "/workspace/reference_screenshots/home_reference.png",
+      "index": "/workspace/reference_screenshots/index_reference.png",
+      "dang-ky-thue": "/workspace/reference_screenshots/dang-ky-thue_reference.png",
+      "khai-thue": "/workspace/reference_screenshots/khai-thue_reference.png",
+      "nop-thue": "/workspace/reference_screenshots/nop-thue_reference.png",
+      "hoa-don-dien-tu": "/workspace/reference_screenshots/hoa-don-dien-tu_reference.png",
+      "thong-tin-tong-quan": "/workspace/reference_screenshots/thong-tin-tong-quan_reference.png",
+      "ho-so-dang-ky-thue": "/workspace/reference_screenshots/ho-so-dang-ky-thue_reference.png",
+      "ho-so-quyet-toan-thue": "/workspace/reference_screenshots/ho-so-quyet-toan-thue_reference.png",
+      "ho-tro-quyet-toan": "/workspace/reference_screenshots/ho-tro-quyet-toan_reference.png",
+      "ho-tro": "/workspace/reference_screenshots/ho-tro_reference.png",
+      "bien-lai-dien-tu": "/workspace/reference_screenshots/bien-lai-dien-tu_reference.png",
+      "nhom-chuc-nang-nop-thue": "/workspace/reference_screenshots/nhom-chuc-nang-nop-thue_reference.png",
+      "thay-doi-thong-tin-npt": "/workspace/reference_screenshots/thay-doi-thong-tin-npt_reference.png",
+      "thiet-lap-ca-nhan": "/workspace/reference_screenshots/thiet-lap-ca-nhan_reference.png",
+      "thong-bao": "/workspace/reference_screenshots/thong-bao_reference.png",
+      "thong-tin-tai-khoan": "/workspace/reference_screenshots/thong-tin-tai-khoan_reference.png",
+      "tien-ich": "/workspace/reference_screenshots/tien-ich_reference.png",
+      "tra-cuu-chung-tu": "/workspace/reference_screenshots/tra-cuu-chung-tu_reference.png",
+      "tra-cuu-nghia-vu-thue": "/workspace/reference_screenshots/tra-cuu-nghia-vu-thue_reference.png",
+      "tra-cuu-thong-tin-nguoi-phu-thuoc": "/workspace/reference_screenshots/tra-cuu-thong-tin-nguoi-phu-thuoc_reference.png"
+    },
+    "uiElements": {
+      "header": {
+        "selectors": [".header", ".navbar", ".nav-bar", ".top-bar", ".toolbar", ".action-bar", "[id*='header']", "[class*='header']"],
+        "properties": ["height", "backgroundColor", "color", "fontSize", "fontFamily", "fontWeight", "padding", "margin"]
+      },
+      "button": {
+        "selectors": [".button", ".btn", ".action-button", "button", "[type='button']", "[type='submit']"],
+        "properties": ["width", "height", "backgroundColor", "color", "fontSize", "fontFamily", "border", "borderRadius", "padding", "margin"]
+      },
+      "input": {
+        "selectors": [".input", ".form-control", "input", "textarea", "select"],
+        "properties": ["width", "height", "backgroundColor", "color", "fontSize", "fontFamily", "border", "borderRadius", "padding", "margin"]
+      },
+      "card": {
+        "selectors": [".card", ".panel", ".container", ".box", ".section"],
+        "properties": ["width", "height", "backgroundColor", "color", "border", "borderRadius", "padding", "margin"]
+      }
+    }
+  }
+}

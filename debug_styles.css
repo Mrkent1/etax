@@ -1,0 +1,161 @@
+/* Debug Styles for eTax Mobile PWA */
+/* These styles enhance the debugging experience across all pages */
+
+/* Ensure mobile viewport */
+@media (min-width: 768px) {
+  body {
+    /* On larger screens, simulate mobile width for debugging */
+    max-width: 414px; /* Common mobile width */
+    margin: 0 auto;
+    border-left: 2px dashed #ff00ff;
+    border-right: 2px dashed #ff00ff;
+  }
+}
+
+/* Debug highlight styles */
+.debug-highlight {
+  position: fixed !important;
+  border: 2px solid #ff00ff !important;
+  background: rgba(255, 0, 255, 0.1) !important;
+  pointer-events: none !important;
+  z-index: 9998 !important;
+  box-sizing: border-box !important;
+}
+
+.debug-measurements {
+  position: fixed !important;
+  background: rgba(255, 0, 255, 0.8) !important;
+  color: white !important;
+  padding: 2px 4px !important;
+  font-size: 10px !important;
+  z-index: 9999 !important;
+  pointer-events: none !important;
+  font-family: monospace !important;
+}
+
+/* Grid overlay */
+#debug-grid {
+  position: absolute !important;
+  background-image: 
+    linear-gradient(to right, rgba(255, 0, 255, 0.2) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 0, 255, 0.2) 1px, transparent 1px) !important;
+  background-size: 8px 8px !important;
+  pointer-events: none !important;
+  display: none !important;
+}
+
+/* Debug overlay container */
+#debug-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  pointer-events: none !important;
+  z-index: 9999 !important;
+  font-family: monospace !important;
+  font-size: 12px !important;
+  color: #ff00ff !important;
+  display: none !important;
+}
+
+/* Debug control buttons */
+#debug-toggle, #debug-grid-toggle, #debug-color-toggle {
+  position: fixed !important;
+  top: 10px !important;
+  background: #ff00ff !important;
+  color: white !important;
+  border: none !important;
+  padding: 8px 12px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  font-weight: bold !important;
+  z-index: 10001 !important;
+  pointer-events: auto !important;
+}
+
+#debug-grid-toggle {
+  background: #00ffff !important;
+  color: black !important;
+  left: 80px !important;
+}
+
+#debug-color-toggle {
+  background: #ffff00 !important;
+  color: black !important;
+  left: 150px !important;
+}
+
+/* Color picker panel */
+#debug-color-picker {
+  position: fixed !important;
+  top: 10px !important;
+  right: 10px !important;
+  width: 200px !important;
+  background: rgba(0, 0, 0, 0.8) !important;
+  border: 1px solid #ff00ff !important;
+  border-radius: 4px !important;
+  padding: 10px !important;
+  color: white !important;
+  font-family: monospace !important;
+  font-size: 12px !important;
+  z-index: 10000 !important;
+  display: none !important;
+}
+
+/* Ensure proper mobile viewport */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Mobile-specific styles for debugging */
+@media (max-width: 767px) {
+  html, body {
+    width: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Visual indicators for common UI elements during debugging */
+.header, .navbar, .nav-bar, .top-bar, .toolbar, .action-bar {
+  outline: 1px solid rgba(255, 0, 0, 0.5) !important;
+}
+
+.footer, .bottom-bar {
+  outline: 1px solid rgba(0, 255, 0, 0.5) !important;
+}
+
+.button, .btn, .action-button {
+  outline: 1px solid rgba(0, 0, 255, 0.5) !important;
+}
+
+.input, .form-control, input, textarea, select {
+  outline: 1px solid rgba(255, 255, 0, 0.5) !important;
+}
+
+.card, .panel, .container {
+  outline: 1px solid rgba(255, 0, 255, 0.5) !important;
+}
+
+.text-primary {
+  outline: 1px solid rgba(128, 0, 128, 0.5) !important;
+}
+
+.text-secondary {
+  outline: 1px solid rgba(128, 128, 128, 0.5) !important;
+}
+
+.text-success {
+  outline: 1px solid rgba(0, 128, 0, 0.5) !important;
+}
+
+.text-warning {
+  outline: 1px solid rgba(255, 165, 0, 0.5) !important;
+}
+
+.text-danger {
+  outline: 1px solid rgba(255, 0, 0, 0.5) !important;
+}
