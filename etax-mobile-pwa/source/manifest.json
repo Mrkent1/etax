@@ -4,7 +4,7 @@
   "description": "Progressive Web App for Vietnamese Tax Management and Filing - 22 comprehensive tax pages with offline capabilities",
   "start_url": "./",
   "scope": "./",
-  "display": "standalone",
+  "display": "fullscreen",
   "orientation": "portrait-primary",
   "background_color": "#ffffff",
   "theme_color": "#1976d2",
@@ -55,4 +55,3 @@
     }
   ]
 }
-
