@@ -1,172 +1,378 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <meta name="theme-color" content="#C60000">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <title>Đăng nhập - eTax Mobile</title>
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="login.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#c8102e">
+    <title>Đăng nhập - eTax Mobile</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/login.css">
+    <style>
+        /* CRITICAL FIX: Prevent scroll & fit everything in viewport */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden; /* 🔥 KEY FIX: No scroll! */
+            position: fixed; /* Extra security */
+        }
+
+        .login-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            width: 100%;
+            background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Header Section - 25% */
+        .header-section {
+            flex: 0 0 25vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-top: max(env(safe-area-inset-top), 20px);
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 12px;
+        }
+
+        .app-title {
+            font-size: 24px;
+            color: white;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        /* Form Section - 35% */
+        .form-section {
+            flex: 0 0 35vh;
+            padding: 0 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+            font-size: 20px;
+        }
+
+        .input-label {
+            display: block;
+            color: #ccc;
+            font-size: 13px;
+            margin-bottom: 8px;
+            padding-left: 32px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px 40px 12px 32px;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #444;
+            color: white;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-bottom-color: #c8102e;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .forgot-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
+        .forgot-link {
+            color: #ffcc00;
+            font-size: 13px;
+            text-decoration: none;
+        }
+
+        /* Button Section - 15% */
+        .button-section {
+            flex: 0 0 15vh;
+            padding: 0 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 12px;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 14px;
+            background: #c8102e;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .biometric-button {
+            width: 100%;
+            padding: 14px;
+            background: white;
+            color: #333;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .biometric-icon {
+            width: 32px;
+            height: 32px;
+        }
+
+        /* Footer Section - 25% */
+        .footer-section {
+            flex: 0 0 25vh;
+            padding: 0 30px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .signup-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .signup-text {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .signup-link {
+            color: #ffcc00;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .experience-box {
+            background: rgba(255, 204, 0, 0.1);
+            border: 1px solid rgba(255, 204, 0, 0.3);
+            border-radius: 8px;
+            padding: 10px 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .experience-icon {
+            width: 32px;
+            height: 32px;
+            background: #ffcc00;
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+
+        .experience-text {
+            color: #ffcc00;
+            font-size: 13px;
+            line-height: 1.3;
+        }
+
+        .bottom-nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding-bottom: max(env(safe-area-inset-bottom), 10px);
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            color: white;
+            text-decoration: none;
+            font-size: 11px;
+        }
+
+        .nav-icon {
+            font-size: 24px;
+        }
+
+        /* Background decoration */
+        .bg-emblem {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Dotted pattern */
+        .dotted-pattern {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 50%;
+            background-image: radial-gradient(circle, rgba(255, 204, 0, 0.3) 1px, transparent 1px);
+            background-size: 15px 15px;
+            opacity: 0.4;
+            pointer-events: none;
+        }
+    </style>
 </head>
 <body>
-  <div class="wrapper" id="login-wrapper">
-    <!-- Bottom Navigation -->
-    <div class="bottomNav" id="bottom-nav">
-      <button type="button" aria-label="QR tem">
-        <img src="assets/icon-qr.webp" alt="" width="30" height="30">
-        QR tem
-      </button>
-      <button type="button" aria-label="Tiện ích">
-        <img src="assets/tienich.webp" alt="" width="30" height="30">
-        Tiện ích
-      </button>
-      <button type="button" aria-label="Hỗ trợ">
-        <img src="assets/hotro.webp" alt="" width="30" height="30">
-        Hỗ trợ
-      </button>
-      <button type="button" aria-label="Chia sẻ">
-        <img src="assets/chiase.webp" alt="" width="30" height="30">
-        Chia sẻ
-      </button>
-    </div>
+    <div class="login-container">
+        <!-- Background decorations -->
+        <div class="dotted-pattern"></div>
+        <img src="assets/icons/coat-of-arms.svg" alt="" class="bg-emblem">
 
-    <!-- Content -->
-    <div class="content" id="login-content">
-      <!-- Logo -->
-      <div class="logo">
-        <img 
-          src="assets/logo-192.webp" 
-          alt="eTax Logo" 
-          width="96" 
-          height="96"
-        >
-        <h1>eTax Mobile</h1>
-      </div>
-
-      <!-- Login Form -->
-      <form class="form" id="login-form">
-        <!-- MST Input -->
-        <div class="inputGroup">
-          <!-- Đã xoá label for="mst-input" class="sr-only" -->
-          <div class="inputRow">
-            <img 
-              src="assets/icon-mst-new.svg" 
-              alt="" 
-              class="icon"
-              width="20" 
-              height="20"
-            >
-            <input
-              id="mst-input"
-              type="text"
-              inputmode="numeric"
-              placeholder="Mã số thuế"
-              autocomplete="username"
-              required
-            >
-          </div>
-          <div class="inputError" id="mst-error" role="alert" aria-live="polite"></div>
+        <!-- Header Section -->
+        <div class="header-section">
+            <img src="assets/icons/coat-of-arms.svg" alt="Logo" class="logo">
+            <div class="app-title">eTax Mobile</div>
         </div>
 
-        <!-- Password Input -->
-        <div class="inputGroup">
-          <!-- Đã xoá label for="password-input" class="sr-only" -->
-          <div class="inputRow">
-            <img 
-              src="assets/icon-password-new.svg" 
-              alt="" 
-              class="icon"
-              width="20" 
-              height="20"
-            >
-            <input
-              id="password-input"
-              type="password"
-              placeholder="Mật khẩu"
-              autocomplete="current-password"
-              required
-            >
-            <button 
-              type="button" 
-              class="passwordToggle" 
-              id="password-toggle"
-              aria-label="Ẩn mật khẩu"
-            >
-              <img
-                src="assets/icon-eye-closed.svg"
-                alt=""
-                width="20"
-                height="20"
-                id="password-toggle-icon"
-              >
+        <!-- Form Section -->
+        <div class="form-section">
+            <div class="input-group">
+                <span class="input-icon">👤</span>
+                <label class="input-label">Mã số thuế</label>
+                <input type="text" class="input-field" value="036099003866" id="taxId">
+            </div>
+
+            <div class="input-group">
+                <span class="input-icon">🔒</span>
+                <label class="input-label">Mật khẩu</label>
+                <input type="password" class="input-field" id="password">
+                <span class="toggle-password" onclick="togglePassword()">👁️</span>
+            </div>
+
+            <div class="forgot-links">
+                <a href="#" class="forgot-link">Quên tài khoản (mã số thuế)?</a>
+                <a href="#" class="forgot-link">Quên mật khẩu?</a>
+            </div>
+        </div>
+
+        <!-- Button Section -->
+        <div class="button-section">
+            <button class="login-button" onclick="handleLogin()">
+                Đăng nhập
             </button>
-          </div>
-        </div>
 
-        <!-- Error Message -->
-        <div class="errorMessage" id="error-message" role="alert" aria-live="polite"></div>
-
-        <!-- Help Links -->
-        <div class="helpLinks">
-          <a href="#">Quên tài khoản (Mã số thuế)?</a>
-          <a href="#">Quên mật khẩu?</a>
-        </div>
-
-        <!-- Login Button -->
-        <div class="loginButtonContainer">
-          <button type="submit" class="loginButton" id="login-button" aria-label="Đăng nhập vào hệ thống eTax">
-            Đăng nhập
-          </button>
-          <div class="qrIcon">
-            <img src="assets/icon-qr.webp" alt="" width="28" height="28">
-          </div>
-        </div>
-
-        <!-- VNeID Button -->
-        <button type="button" class="vnidButton" aria-label="Đăng nhập bằng tài khoản Định danh điện tử VNeID">
-          <div class="vnidText">
-            Đăng nhập bằng tài khoản<br>
-            Định danh điện tử
-          </div>
-          <img src="assets/vnid.webp" alt="VNeID Logo" width="44" height="44">
-        </button>
-
-        <!-- Signup Section -->
-        <div class="signupSection">
-          <p><span>Bạn chưa có tài khoản?</span><a href="#">Đăng ký ngay</a></p>
-          <p>Người nước ngoài hoặc người Việt Nam sống ở nước ngoài không có số định danh cá nhân hoặc chưa có mã số thuế? <a href="#">Đăng ký thuế ngay.</a></p>
-        </div>
-
-        <!-- Business Household Section -->
-        <div class="business-household-section" style="text-align: center; margin-top: 20px;">
-            <button type="button" style="background: #f0ad4e; color: white; border: none; padding: 10px 15px; border-radius: 5px; font-size: 1rem; display: inline-flex; align-items: center; gap: 8px;">
-                <!-- NOTE: You will need to provide the correct icon path -->
-                <img src="assets/icon-business.svg" alt="" width="24" height="24"> 
-                <span>Trải nghiệm cho Hộ, cá nhân kinh doanh</span>
+            <button class="biometric-button">
+                <img src="assets/icons/vneid-icon.svg" alt="" class="biometric-icon">
+                <span>Đăng nhập bằng tài khoản<br>Định danh điện tử</span>
             </button>
         </div>
-      </form>
-    </div>
-  </div>
 
-  <script type="module" src="login.js"></script>
+        <!-- Footer Section -->
+        <div class="footer-section">
+            <div class="signup-section">
+                <span class="signup-text">Bạn chưa có tài khoản?</span>
+                <a href="#" class="signup-link">Đăng ký ngay</a>
+            </div>
+
+            <div style="font-size: 12px; color: #999; line-height: 1.4; margin-bottom: 10px;">
+                Người nước ngoài hoặc người Việt Nam sống ở nước ngoài không có số định danh cá nhân-chưa có mã số thuế? <a href="#" style="color: #ffcc00;">Đăng ký thuế ngay.</a>
+            </div>
+
+            <div class="experience-box">
+                <div class="experience-icon">🏪</div>
+                <div class="experience-text">Trải nghiệm cho Hộ, cá nhân kinh doanh</div>
+            </div>
+
+            <nav class="bottom-nav">
+                <a href="#" class="nav-item">
+                    <span class="nav-icon">⬜</span>
+                    <span>QR tẹm</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="nav-icon">🔧</span>
+                    <span>Tiện ích</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="nav-icon">❓</span>
+                    <span>Hỗ trợ</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="nav-icon">↗️</span>
+                    <span>Chia sẻ</span>
+                </a>
+            </nav>
+        </div>
+    </div>
 
     <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('/service-worker.js')
-                    .then(function(registration) {
-                        console.log('SW registered: ', registration);
-                    })
-                    .catch(function(registrationError) {
-                        console.log('SW registration failed: ', registrationError);
-                    });
-            });
+        function togglePassword() {
+            const passwordField = document.getElementById('password');
+            passwordField.type = passwordField.type === 'password' ? 'text' : 'password';
         }
+
+        function handleLogin() {
+            const taxId = document.getElementById('taxId').value;
+            const password = document.getElementById('password').value;
+            
+            if (!taxId || !password) {
+                alert('Vui lòng nhập đầy đủ thông tin');
+                return;
+            }
+            
+            // Store MST in localStorage
+            localStorage.setItem('userMST', taxId);
+            localStorage.setItem('isLoggedIn', 'true');
+            
+            // Redirect to home
+            window.location.href = 'home.html';
+        }
+
+        // Prevent any scrolling
+        document.addEventListener('touchmove', function(e) {
+            if (e.target.tagName !== 'INPUT') {
+                e.preventDefault();
+            }
+        }, { passive: false });
     </script>
 </body>
 </html>
