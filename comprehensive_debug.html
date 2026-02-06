@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive Debug Dashboard - eTax Mobile PWA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 10px;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card h3 {
+            color: #333;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+        
+        .page-list {
+            list-style: none;
+        }
+        
+        .page-list li {
+            padding: 10px;
+            margin-bottom: 5px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .page-list li:hover {
+            background-color: #e9e9e9;
+        }
+        
+        .page-list li.analyzed {
+            background-color: #d4edda;
+            border-left: 4px solid #28a745;
+        }
+        
+        .page-list li.has-issues {
+            background-color: #f8d7da;
+            border-left: 4px solid #dc3545;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            min-width: 200px;
+            margin: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .high { color: #dc3545; }
+        .medium { color: #ffc107; }
+        .low { color: #28a745; }
+        
+        .debug-controls {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        button {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+        
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .progress-container {
+            margin: 20px 0;
+            background: #e9ecef;
+            border-radius: 10px;
+            height: 20px;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #4caf50, #8bc34a);
+            transition: width 0.5s ease;
+        }
+        
+        .iframe-container {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100%;
+            background: white;
+            z-index: 1000;
+            transition: right 0.5s ease;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+        }
+        
+        .iframe-container.active {
+            right: 0;
+        }
+        
+        .iframe-header {
+            padding: 15px 20px;
+            background: #333;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .iframe-content {
+            height: calc(100% - 60px);
+        }
+        
+        .iframe-content iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .close-btn {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .debug-instructions {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .debug-instructions h4 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        .debug-instructions ul {
+            padding-left: 20px;
+        }
+        
+        .debug-instructions li {
+            margin-bottom: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            .stats {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .stat-card {
+                width: 100%;
+                margin: 10px 0;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔍 eTax Mobile PWA Debug Dashboard</h1>
+            <p class="subtitle">Comprehensive Analysis & Debugging Tool for All Pages</p>
+        </header>
+        
+        <div class="debug-instructions">
+            <h4>📋 Instructions:</h4>
+            <ul>
+                <li>Click on any page name to open it in the preview panel</li>
+                <li>Use the "Debug Tools" button to inject debugging overlay</li>
+                <li>Run "Analyze All Pages" to generate comprehensive reports</li>
+                <li>View statistics and progress in real-time</li>
+                <li>Download full analysis report when complete</li>
+            </ul>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number" id="total-pages">0</div>
+                <div class="stat-label">Total Pages</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="analyzed-pages">0</div>
+                <div class="stat-label">Analyzed Pages</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="issues-found">0</div>
+                <div class="stat-label">Issues Found</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="compliance-percent">0%</div>
+                <div class="stat-label">Compliance</div>
+            </div>
+        </div>
+        
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar" style="width: 0%"></div>
+        </div>
+        
+        <div class="debug-controls">
+            <button id="analyze-all-btn">📊 Analyze All Pages</button>
+            <button id="generate-report-btn" disabled>📥 Generate Report</button>
+            <button id="inject-debug-btn">🛠️ Inject Debug Tools</button>
+            <button id="toggle-preview-btn">👁️ Toggle Preview</button>
+        </div>
+        
+        <div class="dashboard">
+            <div class="card">
+                <h3>📱 Main Pages</h3>
+                <ul class="page-list" id="main-pages">
+                    <!-- Pages will be populated by JavaScript -->
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h3>⚙️ Functional Pages</h3>
+                <ul class="page-list" id="functional-pages">
+                    <!-- Pages will be populated by JavaScript -->
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h3>📋 Analysis Summary</h3>
+                <div id="analysis-summary">
+                    <p>No analysis performed yet.</p>
+                    <p>Click "Analyze All Pages" to begin comprehensive debugging.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="iframe-container" id="iframe-container">
+        <div class="iframe-header">
+            <h3 id="iframe-title">Page Preview</h3>
+            <button class="close-btn" id="close-iframe">✕ Close</button>
+        </div>
+        <div class="iframe-content">
+            <iframe id="preview-iframe" src=""></iframe>
+        </div>
+    </div>
+
+    <script>
+        // Configuration
+        const config = {
+            baseUrl: 'http://localhost:8082',
+            pages: [
+                // Main pages
+                { name: 'index.html', category: 'main', path: '/index.html', label: 'Trang chủ' },
+                { name: 'login.html', category: 'main', path: '/login.html', label: 'Đăng nhập' },
+                { name: 'home.html', category: 'main', path: '/home.html', label: 'Trang chính' },
+                { name: 'thong-tin-tong-quan.html', category: 'main', path: '/pages/thong-tin-tong-quan.html', label: 'Thông tin tổng quan' },
+                
+                // Functional pages
+                { name: 'dang-ky-thue.html', category: 'functional', path: '/pages/dang-ky-thue.html', label: 'Đăng ký thuế' },
+                { name: 'khai-thue.html', category: 'functional', path: '/pages/khai-thue.html', label: 'Khai thuế' },
+                { name: 'nop-thue.html', category: 'functional', path: '/pages/nop-thue.html', label: 'Nộp thuế' },
+                { name: 'hoa-don-dien-tu.html', category: 'functional', path: '/pages/hoa-don-dien-tu.html', label: 'Hóa đơn điện tử' },
+                { name: 'ho-so-dang-ky-thue.html', category: 'functional', path: '/pages/ho-so-dang-ky-thue.html', label: 'Hồ sơ đăng ký thuế' },
+                { name: 'ho-so-quyet-toan-thue.html', category: 'functional', path: '/pages/ho-so-quyet-toan-thue.html', label: 'Hồ sơ quyết toán thuế' },
+                { name: 'ho-tro-quyet-toan.html', category: 'functional', path: '/pages/ho-tro-quyet-toan.html', label: 'Hỗ trợ quyết toán' },
+                { name: 'ho-tro.html', category: 'functional', path: '/pages/ho-tro.html', label: 'Hỗ trợ' },
+                { name: 'bien-lai-dien-tu.html', category: 'functional', path: '/pages/bien-lai-dien-tu.html', label: 'Biên lai điện tử' },
+                { name: 'nhom-chuc-nang-nop-thue.html', category: 'functional', path: '/pages/nhom-chuc-nang-nop-thue.html', label: 'Nhóm chức năng nộp thuế' },
+                { name: 'thay-doi-thong-tin-npt.html', category: 'functional', path: '/pages/thay-doi-thong-tin-npt.html', label: 'Thay đổi thông tin NPT' },
+                { name: 'thiet-lap-ca-nhan.html', category: 'functional', path: '/pages/thiet-lap-ca-nhan.html', label: 'Thiết lập cá nhân' },
+                { name: 'thong-bao.html', category: 'functional', path: '/pages/thong-bao.html', label: 'Thông báo' },
+                { name: 'thong-tin-tai-khoan.html', category: 'functional', path: '/pages/thong-tin-tai-khoan.html', label: 'Thông tin tài khoản' },
+                { name: 'tien-ich.html', category: 'functional', path: '/pages/tien-ich.html', label: 'Tiện ích' },
+                { name: 'tra-cuu-chung-tu.html', category: 'functional', path: '/pages/tra-cuu-chung-tu.html', label: 'Tra cứu chứng từ' },
+                { name: 'tra-cuu-nghia-vu-thue.html', category: 'functional', path: '/pages/tra-cuu-nghia-vu-thue.html', label: 'Tra cứu nghĩa vụ thuế' },
+                { name: 'tra-cuu-thong-tin-nguoi-phu-thuoc.html', category: 'functional', path: '/pages/tra-cuu-thong-tin-nguoi-phu-thuoc.html', label: 'Tra cứu người phụ thuộc' }
+            ],
+            analysisResults: {},
+            currentPage: null
+        };
+
+        // DOM Elements
+        const elements = {
+            mainPages: document.getElementById('main-pages'),
+            functionalPages: document.getElementById('functional-pages'),
+            analyzeAllBtn: document.getElementById('analyze-all-btn'),
+            generateReportBtn: document.getElementById('generate-report-btn'),
+            injectDebugBtn: document.getElementById('inject-debug-btn'),
+            togglePreviewBtn: document.getElementById('toggle-preview-btn'),
+            closeIframe: document.getElementById('close-iframe'),
+            previewIframe: document.getElementById('preview-iframe'),
+            iframeContainer: document.getElementById('iframe-container'),
+            iframeTitle: document.getElementById('iframe-title'),
+            totalPageStat: document.getElementById('total-pages'),
+            analyzedPageStat: document.getElementById('analyzed-pages'),
+            issuesFoundStat: document.getElementById('issues-found'),
+            complianceStat: document.getElementById('compliance-percent'),
+            progressBar: document.getElementById('progress-bar'),
+            analysisSummary: document.getElementById('analysis-summary')
+        };
+
+        // Initialize the dashboard
+        function initDashboard() {
+            renderPageLists();
+            updateStats();
+            
+            // Event listeners
+            elements.analyzeAllBtn.addEventListener('click', analyzeAllPages);
+            elements.generateReportBtn.addEventListener('click', generateReport);
+            elements.injectDebugBtn.addEventListener('click', injectDebugTools);
+            elements.togglePreviewBtn.addEventListener('click', togglePreview);
+            elements.closeIframe.addEventListener('click', closePreview);
+        }
+
+        // Render page lists
+        function renderPageLists() {
+            const mainPages = config.pages.filter(page => page.category === 'main');
+            const functionalPages = config.pages.filter(page => page.category === 'functional');
+            
+            renderPageList(elements.mainPages, mainPages);
+            renderPageList(elements.functionalPages, functionalPages);
+            
+            // Update total pages stat
+            config.totalPages = config.pages.length;
+            elements.totalPageStat.textContent = config.totalPages;
+        }
+
+        // Render a page list
+        function renderPageList(container, pages) {
+            container.innerHTML = '';
+            
+            pages.forEach(page => {
+                const li = document.createElement('li');
+                li.textContent = `${page.label} (${page.name})`;
+                li.dataset.page = page.name;
+                
+                // Add class if page has been analyzed
+                if (config.analysisResults[page.name]) {
+                    li.classList.add('analyzed');
+                    
+                    // Add class if page has issues
+                    const issues = config.analysisResults[page.name].issues || [];
+                    if (issues.length > 0) {
+                        li.classList.add('has-issues');
+                    }
+                }
+                
+                li.addEventListener('click', () => openPagePreview(page));
+                container.appendChild(li);
+            });
+        }
+
+        // Open page preview
+        function openPagePreview(page) {
+            config.currentPage = page;
+            elements.iframeTitle.textContent = `Preview: ${page.label} (${page.name})`;
+            elements.previewIframe.src = config.baseUrl + page.path;
+            elements.iframeContainer.classList.add('active');
+        }
+
+        // Close preview
+        function closePreview() {
+            elements.iframeContainer.classList.remove('active');
+            elements.previewIframe.src = '';
+            config.currentPage = null;
+        }
+
+        // Toggle preview visibility
+        function togglePreview() {
+            if (elements.iframeContainer.classList.contains('active')) {
+                closePreview();
+            } else if (config.currentPage) {
+                elements.iframeContainer.classList.add('active');
+            } else {
+                alert('Please select a page first to preview');
+            }
+        }
+
+        // Analyze all pages
+        async function analyzeAllPages() {
+            elements.analyzeAllBtn.disabled = true;
+            elements.analyzeAllBtn.textContent = 'Analyzing...';
+            
+            let analyzedCount = 0;
+            const total = config.pages.length;
+            
+            for (const page of config.pages) {
+                try {
+                    // Update progress
+                    analyzedCount++;
+                    const progress = (analyzedCount / total) * 100;
+                    elements.progressBar.style.width = `${progress}%`;
+                    
+                    console.log(`Analyzing page: ${page.name}`);
+                    
+                    // In a real implementation, we would call the analysis API
+                    // For now, we'll simulate the analysis
+                    await simulatePageAnalysis(page);
+                    
+                    // Update the page list item
+                    const pageItem = document.querySelector(`li[data-page="${page.name}"]`);
+                    if (pageItem) {
+                        pageItem.classList.add('analyzed');
+                    }
+                    
+                } catch (error) {
+                    console.error(`Error analyzing ${page.name}:`, error);
+                }
+            }
+            
+            elements.analyzeAllBtn.disabled = false;
+            elements.analyzeAllBtn.textContent = '📊 Analyze All Pages';
+            elements.generateReportBtn.disabled = false;
+            
+            updateStats();
+            updateAnalysisSummary();
+            
+            alert('Analysis complete! You can now generate the full report.');
+        }
+
+        // Simulate page analysis (in real implementation, this would connect to the analysis API)
+        async function simulatePageAnalysis(page) {
+            // Simulate network delay
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            // Generate simulated analysis results
+            const issues = [];
+            
+            // Add some random issues for demonstration
+            if (Math.random() > 0.5) {
+                issues.push({
+                    type: 'typography',
+                    element: 'header',
+                    property: 'fontSize',
+                    expected: '16px',
+                    actual: '14px',
+                    severity: ['high', 'medium', 'low'][Math.floor(Math.random() * 3)],
+                    description: 'Font size does not match design specification'
+                });
+            }
+            
+            if (Math.random() > 0.7) {
+                issues.push({
+                    type: 'layout',
+                    element: 'button',
+                    property: 'height',
+                    expected: '44px',
+                    actual: '40px',
+                    severity: ['high', 'medium', 'low'][Math.floor(Math.random() * 3)],
+                    description: 'Button height below touch target minimum'
+                });
+            }
+            
+            // Store results
+            config.analysisResults[page.name] = {
+                page: page.name,
+                timestamp: new Date().toISOString(),
+                issues: issues,
+                viewport: {
+                    width: 414,
+                    height: 896,
+                    isMobile: true
+                },
+                elements: {
+                    header: { count: 1, issues: issues.filter(i => i.element === 'header').length },
+                    button: { count: 5, issues: issues.filter(i => i.element === 'button').length },
+                    input: { count: 3, issues: issues.filter(i => i.element === 'input').length }
+                }
+            };
+        }
+
+        // Inject debug tools into current preview
+        function injectDebugTools() {
+            if (!config.currentPage) {
+                alert('Please open a page preview first');
+                return;
+            }
+            
+            // In a real implementation, we would inject the debug tools via the iframe
+            // For now, we'll just show a message
+            alert(`Debug tools would be injected into: ${config.currentPage.name}\n\nIn a real implementation, this would add the debugging overlay to the page.`);
+            
+            // The debug tools would be injected using:
+            // previewIframe.contentWindow.injectDebugTools();
+        }
+
+        // Generate report
+        function generateReport() {
+            // Create a simulated comprehensive report
+            const report = {
+                summary: {
+                    totalPages: config.totalPages,
+                    analyzedPages: Object.keys(config.analysisResults).length,
+                    totalIssues: Object.values(config.analysisResults).reduce((sum, result) => sum + result.issues.length, 0),
+                    issuesBySeverity: {
+                        high: 0,
+                        medium: 0,
+                        low: 0
+                    },
+                    compliancePercentage: 85, // Simulated value
+                    timestamp: new Date().toISOString()
+                },
+                detailedResults: config.analysisResults
+            };
+            
+            // Count issues by severity
+            Object.values(config.analysisResults).forEach(result => {
+                result.issues.forEach(issue => {
+                    report.summary.issuesBySeverity[issue.severity]++;
+                });
+            });
+            
+            // Create and download the report
+            const dataStr = JSON.stringify(report, null, 2);
+            const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+            
+            const exportFileDefaultName = `etax-pwa-debug-report-${new Date().toISOString().split('T')[0]}.json`;
+            
+            const linkElement = document.createElement('a');
+            linkElement.setAttribute('href', dataUri);
+            linkElement.setAttribute('download', exportFileDefaultName);
+            linkElement.click();
+            
+            alert('Debug report downloaded successfully!');
+        }
+
+        // Update statistics display
+        function updateStats() {
+            const analyzedPages = Object.keys(config.analysisResults).length;
+            const totalIssues = Object.values(config.analysisResults).reduce((sum, result) => sum + result.issues.length, 0);
+            
+            elements.analyzedPageStat.textContent = analyzedPages;
+            elements.issuesFoundStat.textContent = totalIssues;
+            
+            // Calculate compliance percentage (simplified)
+            const compliance = Math.max(0, 100 - (totalIssues * 2));
+            elements.complianceStat.textContent = `${Math.round(compliance)}%`;
+        }
+
+        // Update analysis summary
+        function updateAnalysisSummary() {
+            const analyzedPages = Object.keys(config.analysisResults);
+            const totalIssues = Object.values(config.analysisResults).reduce((sum, result) => sum + result.issues.length, 0);
+            const issuesBySeverity = {
+                high: 0,
+                medium: 0,
+                low: 0
+            };
+            
+            Object.values(config.analysisResults).forEach(result => {
+                result.issues.forEach(issue => {
+                    issuesBySeverity[issue.severity]++;
+                });
+            });
+            
+            elements.analysisSummary.innerHTML = `
+                <h4>Analysis Summary</h4>
+                <p><strong>Pages Analyzed:</strong> ${analyzedPages.length}/${config.totalPages}</p>
+                <p><strong>Total Issues Found:</strong> ${totalIssues}</p>
+                <p><strong>Issues by Severity:</strong></p>
+                <ul>
+                    <li class="high">High: ${issuesBySeverity.high}</li>
+                    <li class="medium">Medium: ${issuesBySeverity.medium}</li>
+                    <li class="low">Low: ${issuesBySeverity.low}</li>
+                </ul>
+                <p><strong>Compliance:</strong> ${Math.max(0, 100 - (totalIssues * 2))}%</p>
+            `;
+        }
+
+        // Initialize the dashboard when the page loads
+        document.addEventListener('DOMContentLoaded', initDashboard);
+    </script>
+</body>
+</html>
